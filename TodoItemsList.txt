@@ -4,6 +4,6 @@ Marcin task;Marcin new test;15-05-2018
 Really long test;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.;25-05-2018
 Test1;this is test 1;17-05-2018
 Dzisiaj sa zajeci z CRC;Zajecia z CRC kato ing o 16;23-05-2018
-Mail to Justyna1;Send mail to Justyna with birthday wishes1;26-05-2018
 Buy fruits3;Buy dragon fruit and avocado 1;10-06-2018
 asd;asdas;04-06-2018
+Mail to Justyna;Send mail to Justyna with birthday wishes;26-05-2018

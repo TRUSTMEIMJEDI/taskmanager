@@ -201,6 +201,7 @@ public class Controller {
 
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
+            //dialogController.updateItem(selectedItem);
             TodoItem newItem = dialogController.processResult();
             TodoData.getInstance().deleteTodoItem(selectedItem);
             todoListView.getSelectionModel().select(newItem);
