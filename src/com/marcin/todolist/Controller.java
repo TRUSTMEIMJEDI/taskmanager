@@ -168,6 +168,47 @@ public class Controller {
     }
 
     @FXML
+    public void showEditItemDialog() {
+        TodoItem selectedItem = todoListView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("No item selected.");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select the item you want to edit.");
+            alert.showAndWait();
+            return;
+        }
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Edit selected item");
+        dialog.setHeaderText("Use this dialog to edit a chosen item");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("todoitemDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+
+        } catch (IOException e) {
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        DialogController dialogController = fxmlLoader.getController();
+        dialogController.editItem(selectedItem);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            TodoItem newItem = dialogController.processResult();
+            TodoData.getInstance().deleteTodoItem(selectedItem);
+            todoListView.getSelectionModel().select(newItem);
+        }
+
+    }
+
+    @FXML
     public void handleKeyPressed(KeyEvent keyEvent) {
         TodoItem selectedItem = todoListView.getSelectionModel().getSelectedItem();
         if(selectedItem != null) {

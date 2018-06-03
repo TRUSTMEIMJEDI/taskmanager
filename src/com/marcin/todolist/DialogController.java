@@ -28,4 +28,10 @@ public class DialogController {
         TodoData.getInstance().addTodoItem(newItem);
         return newItem;
     }
+
+    public void editItem(TodoItem item) {
+        shortDescriptionField.setText(item.getShortDescription());
+        detailsArea.setText(item.getDetails());
+        deadlinePicker.setValue(item.getDeadline());
+    }
 }
